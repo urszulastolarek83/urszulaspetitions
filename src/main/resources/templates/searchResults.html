@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Search Results</title>
+</head>
+<body>
+    <h1>Search Results</h1>
+    <ul>
+        <th:block th:each="result : ${results}">
+            <li>
+                <strong th:text="${result.title}"></strong><br/>
+                <span th:text="${result.description}"></span>
+            </li>
+        </th:block>
+    </ul>
+    <a href="/">Back to Home</a>
+</body>
+</html>
