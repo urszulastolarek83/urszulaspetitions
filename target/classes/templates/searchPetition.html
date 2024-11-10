@@ -2,15 +2,76 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <title>Search for a Petition</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f9f9f9;
+        }
+        h1 {
+            color: #333;
+        }
+        form {
+            margin-bottom: 20px;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            background-color: #fff;
+        }
+        label {
+            display: block;
+            margin-top: 10px;
+        }
+        input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        button {
+            margin-top: 10px;
+            padding: 10px 15px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        a {
+            display: inline-block;
+            margin-top: 10px;
+            text-decoration: none;
+            color: #007BFF;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            document.querySelector('form').addEventListener('submit', function(e) {
+                const query = document.getElementById('query').value;
+                if (!query.trim()) {
+                    alert('Please enter a search term.');
+                    e.preventDefault(); // Prevent form submission
+                }
+            });
+        });
+    </script>
 </head>
 <body>
     <h1>Search for a Petition</h1>
     <form action="/search/results" method="get">
         <label for="query">Search Query:</label>
-        <input type="text" id="query" name="query" required>
+        <input type="text" id="query" name="query" placeholder="Enter title or creator name" required>
         <button type="submit">Search</button>
     </form>
     <a href="/">Back to Home</a>
 </body>
 </html>
+
 

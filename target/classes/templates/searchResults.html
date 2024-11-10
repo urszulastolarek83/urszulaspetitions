@@ -2,17 +2,57 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <title>Search Results</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f9f9f9;
+        }
+        h1 {
+            color: #333;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        li {
+            background-color: #fff;
+            margin: 10px 0;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        strong {
+            display: block;
+            font-size: 18px;
+            color: #007BFF;
+        }
+        span {
+            color: #555;
+        }
+        a {
+            display: inline-block;
+            margin-top: 20px;
+            text-decoration: none;
+            color: #007BFF;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
 </head>
 <body>
     <h1>Search Results</h1>
     <ul>
         <th:block th:each="result : ${results}">
             <li>
-                <strong th:text="${result.title}"></strong><br/>
+                <strong th:text="${result.title}"></strong>
                 <span th:text="${result.description}"></span>
+                <a th:href="@{/petitions/{id}(id=${result.id})}">View Petition</a>
             </li>
         </th:block>
     </ul>
     <a href="/">Back to Home</a>
 </body>
 </html>
+
